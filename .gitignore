@@ -1,13 +1,18 @@
-﻿# Python  
+﻿@"  
+# Python  
 __pycache__/  
 *.py[cod]  
-*.class  
+*$py.class  
 
 # Archivos temporales de Excel  
 ~$*  
 *.tmp  
 *.xlsx  
 !Base_control_2.xlsx  
+!Base_control_1.xlsx  
+!Base_control_3.xlsx 
+!Analisis_Comparativo_Propuestas.xlsx
+!Analisis_Descriptivo.xlsx
 
 # Entornos virtuales  
 venv/  
@@ -21,3 +26,4 @@ Thumbs.db
 # IDEs  
 .idea/  
 .vscode/  
+"@ | Out-File -FilePath ".gitignore" -Encoding UTF8 -Force
