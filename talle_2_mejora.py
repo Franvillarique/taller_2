@@ -154,7 +154,7 @@ def crear_resumen_completo(df):
     # Crear los resúmenes  
 resumen_mensual, resumen_anual = crear_resumen_completo(df_limpio)  
 
-# Crear resumen por ejecutivo (corregido)  
+# Crear resumen por ejecutivo   
 resumen_ejecutivo = df_limpio.groupby('Nombre Ejecutivo', as_index=False).agg({  
     'Monto factura': 'sum',  
     'Ingreso por operación': 'sum',  
@@ -164,8 +164,8 @@ resumen_ejecutivo = df_limpio.groupby('Nombre Ejecutivo', as_index=False).agg({
 })  
 
 # Renombrar columnas del resumen ejecutivo  
-resumen_ejecutivo.columns = ['Ejecutivo', 'Monto Total', 'Ingreso Total',   
-                           'Bono Total P1', 'Bono Total P2', 'Total Clientes']  
+resumen_ejecutivo.columns = ['Ejecutivo', 'Monto Total', 'Ingreso Total',
+                              'Bono Total P1', 'Bono Total P2', 'Total Clientes']  
 
 # Calcular totales por mes y año (corregido)  
 df_limpio['Año'] = df_limpio.iloc[:, 1].dt.year  
@@ -180,8 +180,8 @@ totales_mes_año = df_limpio.groupby(['Año', 'Mes']).agg({
 }).reset_index()  
 
 # Renombrar columnas de totales_mes_año  
-totales_mes_año.columns = ['Año', 'Mes', 'Monto Total', 'Ingreso Total',   
-                          'Bono Total P1', 'Bono Total P2', 'Total Clientes']  
+totales_mes_año.columns = ['Año', 'Mes', 'Monto Total', 'Ingreso Total', 
+                            'Bono Total P1', 'Bono Total P2', 'Total Clientes']  
 
 # Exportar todos los resúmenes a Excel con formato mejorado  
 with pd.ExcelWriter('Resultado_Bonos_2023_2024_Completo.xlsx', engine='openpyxl') as writer:  
